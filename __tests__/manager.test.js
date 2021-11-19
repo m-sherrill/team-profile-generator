@@ -1,4 +1,4 @@
-// class function intern
+// class function Manager
 const Manager = require('../lib/manager')
 const morgan = new Manager("Morgan", 12345, "mo.sherrill@outlook.com", "425-895-1465", "Team Manager");
 
