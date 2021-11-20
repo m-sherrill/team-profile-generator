@@ -3,6 +3,8 @@ const fs = require('fs');
 const Engineer = require("./lib/engineer")
 const Intern = require("./lib/intern")
 const Manager = require("./lib/manager");
+const generateTeam = require("./src/generateteam")
+
 
 let employeesArray = []
 
@@ -12,6 +14,7 @@ const questionsManager = [
     name: "teamName",
     type: "input",
     message: "What is your team name?",
+    default: "Super Awesome Team",
     validate: function (answer) {
       if (answer.length < 1) {
         return console.log("Please enter a team name");
@@ -23,6 +26,7 @@ const questionsManager = [
       name: 'name',
       type: 'input',
       message: 'What is your name?',
+      default: "Morgan Sherrill",
       validate: function (answer) {
         if (answer.length < 1) {
           return console.log("You must enter a name");
@@ -34,6 +38,7 @@ const questionsManager = [
       name: 'id',
       type: 'input',
       message: 'What is your employee ID number?',
+      default: "120",
       validate: function (answer) {
         if (answer.length < 1) {
           return console.log("You must enter an ID number");
@@ -45,6 +50,7 @@ const questionsManager = [
       name: 'email',
       type: 'input',
       message: 'What is your email address?',
+      default: "mo.sherrill@outlook.com",
       validate: function (answer) {
         if (answer.length < 1) {
           return console.log("You must enter an email address");
@@ -56,6 +62,7 @@ const questionsManager = [
         name: 'officeNumber',
         type: 'input',
         message: 'What is your office number?',
+        default: "425-895-1465",
         validate: function (answer) {
           if (answer.length < 1) {
             return console.log("You must enter an office number");
@@ -79,12 +86,13 @@ const questionsManager = [
       name: 'role',
       type: 'list',
       message: 'Is this employee an engineer or intern?',
-      choices: ["Engineer", "Intern"],
+      choices: ["Engineer", "Intern", "Finish Building Team"],
     },
     {
       name: 'name',
       type: 'input',
       message: 'What is your name?',
+      default: "Keith Sherrill",
       validate: function (answer) {
         if (answer.length < 1) {
           return console.log("You must enter a name");
@@ -96,6 +104,7 @@ const questionsManager = [
       name: 'id',
       type: 'input',
       message: 'What is your employee ID number?',
+      default: "152",
       validate: function (answer) {
         if (answer.length < 1) {
           return console.log("You must enter an ID number");
@@ -107,6 +116,7 @@ const questionsManager = [
       name: 'email',
       type: 'input',
       message: 'What is your email address?',
+      default: "mo.sherrill@outlook.com",
       validate: function (answer) {
         if (answer.length < 1) {
           return console.log("You must enter an email address");
@@ -118,18 +128,14 @@ const questionsManager = [
         name: 'school',
         type: 'input',
         message: 'What is the name of your school?',
+        default: "University of Washington",
         when: (answers) => answers.role === "Intern"
       },
       {
         name: 'github',
         type: 'input',
         message: 'What is the name of GitHub username?',
-        when: (answers) => answers.role === "Engineer"
-      },
-      {
-        name: 'github',
-        type: 'input',
-        message: 'What is the name of GitHub username?',
+        default: "m-sherrill",
         when: (answers) => answers.role === "Engineer"
       },
     ]
@@ -140,9 +146,9 @@ function init() {
     inquirer.prompt(questionsManager) 
     .then((answers) => {
         const newManager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber, answers.role)
+        let teamName = answers.teamName
+        employeesArray.push(teamName)
         employeesArray.push(newManager)
-        console.log(employeesArray)
-        console.log(answers.teamName)
         newEmployeeConfirm(answers) 
     })
     
@@ -154,9 +160,11 @@ inquirer.prompt(newEmployeeQuestions)
         console.log(answers)
         if (answers.newEmployee === true) {
           console.log("true true")
-          newEmployeeAdd()
+          newEmployeeAdd(answers)
         } else {
           console.log("Thank you for your input")
+          writeData(employeesArray)
+          
         }
     })
 }
@@ -171,12 +179,20 @@ function newEmployeeAdd(data) {
           const newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.github, answers.role)
           employeesArray.push(newEngineer)
         }
-        console.log(employeesArray)
-        newEmployeeConfirm()
+        console.log(employeesArray, )
+        newEmployeeConfirm(data)
+        
+        
 })
 }
 
-
+function writeData(employeesArray, teamName) {
+  fs.writeFile('./dist/indexfun.html', generateTeam(employeesArray, teamName),
+    (err) =>
+      err ? console.error(err) : console.log('Success!')
+  )
+}
 
 
 init()
+
