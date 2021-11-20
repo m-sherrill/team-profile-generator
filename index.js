@@ -143,6 +143,7 @@ const questionsManager = [
     
 
 function init() {
+  console.log("Welcome! Let's compile your team roster. The information for your team manager should be added first")
     inquirer.prompt(questionsManager) 
     .then((answers) => {
         const newManager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber, answers.role)
@@ -157,9 +158,7 @@ function init() {
 function newEmployeeConfirm(data) {
 inquirer.prompt(newEmployeeQuestions)
     .then((answers) => {
-        console.log(answers)
         if (answers.newEmployee === true) {
-          console.log("true true")
           newEmployeeAdd(answers)
         } else {
           console.log("Thank you for your input")
@@ -179,7 +178,6 @@ function newEmployeeAdd(data) {
           const newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.github, answers.role)
           employeesArray.push(newEngineer)
         }
-        console.log(employeesArray, )
         newEmployeeConfirm(data)
         
         
@@ -189,7 +187,7 @@ function newEmployeeAdd(data) {
 function writeData(employeesArray, teamName) {
   fs.writeFile('./dist/indexfun.html', generateTeam(employeesArray, teamName),
     (err) =>
-      err ? console.error(err) : console.log('Success!')
+      err ? console.error(err) 
   )
 }
 
