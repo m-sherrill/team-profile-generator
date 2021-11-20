@@ -14,7 +14,7 @@ const questionsManager = [
     name: "teamName",
     type: "input",
     message: "What is your team name?",
-    default: "Super Awesome Team",
+    default: "Super Awesome Crew",
     validate: function (answer) {
       if (answer.length < 1) {
         return console.log("Please enter a team name");
@@ -187,7 +187,7 @@ function newEmployeeAdd(data) {
 function writeData(employeesArray, teamName) {
   fs.writeFile('./dist/indexfun.html', generateTeam(employeesArray, teamName),
     (err) =>
-      err ? console.error(err) 
+      err ? console.error(err) : console.log("Success!")
   )
 }
 

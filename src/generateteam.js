@@ -1,5 +1,4 @@
 function generateTeam(employeesArray) {
-    console.log(employeesArray)
     // start of index.html
     const startHTML = `<!DOCTYPE html>
 <html lang="en">
@@ -21,7 +20,7 @@ function generateTeam(employeesArray) {
 </body>
 </html>`
     const header = `<header>
-    ${employeesArray[0]}
+    ${employeesArray[0]}'s<br/>Team Roster
     </header>
     `
     const space = `<div class="container space">Meet the Rest of the Team!</div>`
@@ -49,12 +48,12 @@ function generateTeam(employeesArray) {
     for (let i = 0; i < employeesArray.length; i++) {
         if(employeesArray[i].role == "Engineer") {
             pageHTML += `
-            <div class="card cardContainer" style="width: 18rem;">
+            <div class="card cardContainer" style="width: 25rem;">
                 <div class="card-body cardBody">
                     <h2 class="card-title" style="font-weight: bold;">${employeesArray[i].name}</h2>
                     <h4 class="card-subtitle mb-2" style="font-weight: bold;">${employeesArray[i].role}</h4>
                     <h6 class="card-subtitle mb-2" style="font-weight: bold; font-decoration: italic">Employee ID ${employeesArray[1].id}</h6>
-                    <p class="card-text"><i class="fab fa-github"></i>&nbsp&nbsp&nbsp${employeesArray[i].github}</p>
+                    <p class="card-text"><i class="fas fa-envelope-open-text"></i>&nbsp&nbsp&nbsp${employeesArray[i].email} <br/><i class="fab fa-github"></i>&nbsp&nbsp&nbsp${employeesArray[i].github}</p>
                 </div>
             </div>
             `
@@ -65,12 +64,12 @@ function generateTeam(employeesArray) {
         for (let i = 0; i < employeesArray.length; i++) {
             if(employeesArray[i].role == "Intern") {
                 pageHTML += `
-                <div class="card cardContainer" style="width: 18rem;">
+                <div class="card cardContainer" style="width: 25rem;">
                     <div class="card-body cardBody">
                         <h2 class="card-title" style="font-weight: bold;">${employeesArray[i].name}</h2>
                         <h4 class="card-subtitle mb-2" style="font-weight: bold;">${employeesArray[i].role}</h4>
                         <h6 class="card-subtitle mb-2" style="font-weight: bold; font-decoration: italic">Employee ID ${employeesArray[1].id}</h6>
-                        <p class="card-text"><i class="fas fa-graduation-cap"></i>&nbsp&nbsp&nbsp${employeesArray[i].school}</p>
+                        <p class="card-text"><i class="fas fa-envelope-open-text"></i>&nbsp&nbsp&nbsp${employeesArray[i].email} <br/><i class="fas fa-graduation-cap"></i>&nbsp&nbsp&nbsp${employeesArray[i].school}</p>
                     </div>
                 </div>
                 `

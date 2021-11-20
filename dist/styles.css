@@ -29,9 +29,8 @@ body {
     font-size: 35px;
     color: rgb(0, 0, 0);
     font-stretch:extra-expanded;
-    border-radius: 20px;
-
 }
+
 .cardContainer {
     margin:10px;
     padding: 10px;
