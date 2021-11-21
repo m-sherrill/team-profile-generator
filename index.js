@@ -3,7 +3,7 @@ const fs = require('fs');
 const Engineer = require("./lib/engineer")
 const Intern = require("./lib/intern")
 const Manager = require("./lib/manager");
-const generateTeam = require("./src/generateteam")
+const generateTeam = require("./utils/generateteam")
 
 
 let employeesArray = []

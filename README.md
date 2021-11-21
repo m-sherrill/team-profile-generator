@@ -2,6 +2,9 @@
   
 ## Description
 
+This is a node.js application that runs in the terminal to generate an HTML page with your team roster. There are 3 clases of employee this application will accept. One "Manager" and any number of "Engineers" or "Interns" you desire. You will be taken through a series of prompt starting with the team manager information and then moving into the inidividual employee information. At the end, you will have a generated html page displaying your team. I have included a sample below in this README of the expected output. 
+
+If you find the need for extra employee classes beyond "Engineer" and "Intern", please contact me for each new class to be consider in future development. 
 
 ## Installation
 
@@ -15,13 +18,17 @@
 - All prompts will show in the terminal and need to be answered there. 
 - First the information for the team manager needs to be inputed, then there will be an option to add the rest of the team. 
 
-## Demonstration Video
+## Testing 
 
-[![Live Deployment Demenstration](https://i3.ytimg.com/vi/b2gAUH6R7_U/hqdefault.jpg)](https://www.youtube.com/embed/b2gAUH6R7_U?controls=0 "Live Deployment Demo")
+Tests can be run in the terminal with Jest. Once you have completed the ```npm install``` from installation of this application. Run ``` npm run test``` from your terminal to view the included tests. All tests are located in the ```__tests__``` directory.
 
 ## Sample of the Generated Profile
 
 [Sample Generated Profile](https://m-sherrill.github.io/team-profile-generator/dist/indexExample.html)
+
+## Demonstration Video
+
+[Application Demonstration Video](https://m-sherrill.github.io/team-profile-generator/dist/indexExample.html)
 
 ## Contributing
   
