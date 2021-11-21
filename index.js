@@ -86,12 +86,12 @@ const questionsManager = [
       name: 'role',
       type: 'list',
       message: 'Is this employee an engineer or intern?',
-      choices: ["Engineer", "Intern", "Finish Building Team"],
+      choices: ["Engineer", "Intern"],
     },
     {
       name: 'name',
       type: 'input',
-      message: 'What is your name?',
+      message: 'What is their name?',
       default: "Keith Sherrill",
       validate: function (answer) {
         if (answer.length < 1) {
@@ -103,7 +103,7 @@ const questionsManager = [
     {
       name: 'id',
       type: 'input',
-      message: 'What is your employee ID number?',
+      message: 'What is their employee ID number?',
       default: "152",
       validate: function (answer) {
         if (answer.length < 1) {
@@ -115,7 +115,7 @@ const questionsManager = [
     {
       name: 'email',
       type: 'input',
-      message: 'What is your email address?',
+      message: 'What is their email address?',
       default: "mo.sherrill@outlook.com",
       validate: function (answer) {
         if (answer.length < 1) {
@@ -127,23 +127,35 @@ const questionsManager = [
     {
         name: 'school',
         type: 'input',
-        message: 'What is the name of your school?',
+        message: 'What is the name of their school?',
         default: "University of Washington",
-        when: (answers) => answers.role === "Intern"
-      },
+        when: (answers) => answers.role === "Intern",
+        validate: function (answer) {
+          if (answer.length < 1) {
+            return console.log("You must enter an office number");
+          }
+          return true;
+      }
+    },
       {
         name: 'github',
         type: 'input',
-        message: 'What is the name of GitHub username?',
+        message: 'What is their GitHub username?',
         default: "m-sherrill",
-        when: (answers) => answers.role === "Engineer"
-      },
+        when: (answers) => answers.role === "Engineer",
+        validate: function (answer) {
+          if (answer.length < 1) {
+            return console.log("You must enter an office number");
+          }
+          return true;
+      }
+    },
     ]
   
     
 
 function init() {
-  console.log("Welcome! Let's compile your team roster. The information for your team manager should be added first")
+  console.log("Welcome! Let's compile your team roster. You, as the team manager, should enter your information first. There will be an option to enter in the rest of your team after your information is complete!")
     inquirer.prompt(questionsManager) 
     .then((answers) => {
         const newManager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber, answers.role)
@@ -185,7 +197,7 @@ function newEmployeeAdd(data) {
 }
 
 function writeData(employeesArray, teamName) {
-  fs.writeFile('./dist/indexfun.html', generateTeam(employeesArray, teamName),
+  fs.writeFile('./dist/index.html', generateTeam(employeesArray),
     (err) =>
       err ? console.error(err) : console.log("Success!")
   )
