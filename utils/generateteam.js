@@ -1,5 +1,4 @@
 function generateTeam(employeesArray) {
-    console.log(employeesArray)
     // start of index.html
     const startHTML = `<!DOCTYPE html>
 <html lang="en">
@@ -42,12 +41,12 @@ function generateTeam(employeesArray) {
 
     let pageHTML = ''
 
-    pageHTML += startHTML + header + managerContainer + space 
+    pageHTML += startHTML + header + managerContainer + space
     pageHTML += `<div class="container" id="employeeContainer">`
     pageHTML += `<div class="positonTitle">Engineers</div>`
 
     for (let i = 0; i < employeesArray.length; i++) {
-        if(employeesArray[i].role == "Engineer") {
+        if (employeesArray[i].role == "Engineer") {
             pageHTML += `
             <div class="card cardContainer" style="width: 25rem;">
                 <div class="card-body cardBody">
@@ -58,13 +57,13 @@ function generateTeam(employeesArray) {
                 </div>
             </div>
             `
-        }   
+        }
     }
     pageHTML += `<div class="positonTitle">Interns</div>`
 
-        for (let i = 0; i < employeesArray.length; i++) {
-            if(employeesArray[i].role == "Intern") {
-                pageHTML += `
+    for (let i = 0; i < employeesArray.length; i++) {
+        if (employeesArray[i].role == "Intern") {
+            pageHTML += `
                 <div class="card cardContainer" style="width: 25rem;">
                     <div class="card-body cardBody">
                         <h2 class="card-title" style="font-weight: bold;">${employeesArray[i].name}</h2>
@@ -74,7 +73,7 @@ function generateTeam(employeesArray) {
                     </div>
                 </div>
                 `
-            }   
+        }
     }
     pageHTML += `</div>`
     pageHTML += endHTML
