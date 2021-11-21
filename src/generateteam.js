@@ -53,7 +53,7 @@ function generateTeam(employeesArray) {
                 <div class="card-body cardBody">
                     <h2 class="card-title" style="font-weight: bold;">${employeesArray[i].name}</h2>
                     <h4 class="card-subtitle mb-2" style="font-weight: bold;">${employeesArray[i].role}</h4>
-                    <h6 class="card-subtitle mb-2" style="font-weight: bold; font-decoration: italic">Employee ID ${employeesArray[1].id}</h6>
+                    <h6 class="card-subtitle mb-2" style="font-weight: bold; font-decoration: italic">Employee ID ${employeesArray[i].id}</h6>
                     <p class="card-text"><a href="mailto:${employeesArray[i].email}"><i class="fas fa-envelope-open-text"></i>&nbsp&nbsp&nbsp${employeesArray[i].email}</a> <br/><a href="https://github.com/${employeesArray[i].github}"><i class="fab fa-github"></i>&nbsp&nbsp&nbsp${employeesArray[i].github}</a></p>
                 </div>
             </div>
@@ -69,7 +69,7 @@ function generateTeam(employeesArray) {
                     <div class="card-body cardBody">
                         <h2 class="card-title" style="font-weight: bold;">${employeesArray[i].name}</h2>
                         <h4 class="card-subtitle mb-2" style="font-weight: bold;">${employeesArray[i].role}</h4>
-                        <h6 class="card-subtitle mb-2" style="font-weight: bold; font-decoration: italic">Employee ID ${employeesArray[1].id}</h6>
+                        <h6 class="card-subtitle mb-2" style="font-weight: bold; font-decoration: italic">Employee ID ${employeesArray[i].id}</h6>
                         <p class="card-text"><a href="mailto:${employeesArray[i].email}"><i class="fas fa-envelope-open-text"></i>&nbsp&nbsp&nbsp${employeesArray[i].email} </a><br/><i class="fas fa-graduation-cap"></i>&nbsp&nbsp&nbsp${employeesArray[i].school}</p>
                     </div>
                 </div>
