@@ -26,9 +26,11 @@ Tests can be run in the terminal with Jest. Once you have completed the ```npm i
 
 [Sample Generated Profile](https://m-sherrill.github.io/team-profile-generator/dist/indexExample.html)
 
-## Demonstration Video
+## Demonstration Videos
 
-[Application Demonstration Video](https://m-sherrill.github.io/team-profile-generator/dist/indexExample.html)
+[Application Deployment Demonstration Video](https://youtu.be/D2G2TI76lUQ)
+
+[Application Tests Demonstration Video](https://youtu.be/7Zu3tu78QAg)
 
 ## Contributing
   

@@ -15,7 +15,6 @@ const questionsManager = [
     name: "teamName",
     type: "input",
     message: "What is your team name?",
-    default: "Super Awesome Crew",
     validate: function (answer) {
       if (answer.length < 1) {
         return console.log("Please enter a team name");
@@ -27,7 +26,6 @@ const questionsManager = [
     name: 'name',
     type: 'input',
     message: 'What is your name?',
-    default: "Morgan Sherrill",
     validate: function (answer) {
       if (answer.length < 1) {
         return console.log("You must enter a name");
@@ -39,7 +37,6 @@ const questionsManager = [
     name: 'id',
     type: 'input',
     message: 'What is your employee ID number?',
-    default: "120",
     validate: function (answer) {
       if (answer.length < 1) {
         return console.log("You must enter an ID number");
@@ -51,7 +48,6 @@ const questionsManager = [
     name: 'email',
     type: 'input',
     message: 'What is your email address?',
-    default: "mo.sherrill@outlook.com",
     validate: function (answer) {
       if (answer.length < 1) {
         return console.log("You must enter an email address");
@@ -63,7 +59,6 @@ const questionsManager = [
     name: 'officeNumber',
     type: 'input',
     message: 'What is your office number?',
-    default: "425-895-1465",
     validate: function (answer) {
       if (answer.length < 1) {
         return console.log("You must enter an office number");
@@ -93,7 +88,6 @@ const questionsEmployees = [
     name: 'name',
     type: 'input',
     message: 'What is their name?',
-    default: "Keith Sherrill",
     validate: function (answer) {
       if (answer.length < 1) {
         return console.log("You must enter a name");
@@ -105,7 +99,6 @@ const questionsEmployees = [
     name: 'id',
     type: 'input',
     message: 'What is their employee ID number?',
-    default: "152",
     validate: function (answer) {
       if (answer.length < 1) {
         return console.log("You must enter an ID number");
@@ -117,7 +110,6 @@ const questionsEmployees = [
     name: 'email',
     type: 'input',
     message: 'What is their email address?',
-    default: "mo.sherrill@outlook.com",
     validate: function (answer) {
       if (answer.length < 1) {
         return console.log("You must enter an email address");
@@ -129,7 +121,6 @@ const questionsEmployees = [
     name: 'school',
     type: 'input',
     message: 'What is the name of their school?',
-    default: "University of Washington",
     when: (answers) => answers.role === "Intern",
     validate: function (answer) {
       if (answer.length < 1) {
@@ -142,7 +133,6 @@ const questionsEmployees = [
     name: 'github',
     type: 'input',
     message: 'What is their GitHub username?',
-    default: "m-sherrill",
     when: (answers) => answers.role === "Engineer",
     validate: function (answer) {
       if (answer.length < 1) {
@@ -196,7 +186,7 @@ function newEmployeeAdd(data) {
     })
 }
 
-function writeData(employeesArray, teamName) {
+function writeData(employeesArray) {
   fs.writeFile('./dist/index.html', generateTeam(employeesArray),
     (err) =>
       err ? console.error(err) : console.log(chalk.bold.magenta("Your team profile page has been compiled! ... view it here ./dist/index.html"))
