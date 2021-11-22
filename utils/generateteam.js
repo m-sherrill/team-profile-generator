@@ -33,7 +33,7 @@ function generateTeam(employeesArray) {
                     <h2 class="card-title" style="font-weight: bold;">${employeesArray[1].name}</h2>
                     <h4 class="card-subtitle mb-2" style="font-weight: bold;">${employeesArray[1].role}</h4>
                     <h6 class="card-subtitle mb-2" style="font-weight: bold; font-decoration: italic">Employee ID ${employeesArray[1].id}</h6>
-                    <p class="card-text"><i class="fas fa-phone"></i>&nbsp&nbsp&nbsp${employeesArray[1].officeNumber} <br/>
+                    <p class="card-text"><i class="fas fa-door-open"></i>&nbsp&nbsp&nbsp${employeesArray[1].officeNumber} <br/>
                     <a href="mailto:${employeesArray[1].email}"><i class="fas fa-envelope-open-text"></i>&nbsp&nbsp&nbsp${employeesArray[1].email} </a></p>
                 </div>
             </div>
